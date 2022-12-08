@@ -29,6 +29,10 @@ define APPLICATION_CODE_INSTALL_TARGET_CMDS
 	$(INSTALL) -m 0755 $(@D)/client-render/rpi_ws281x/client $(TARGET_DIR)/usr/bin/
 	$(INSTALL) -m 0755 $(@D)/capture_server/server $(TARGET_DIR)/usr/bin/
 	$(INSTALL) -m 0755 $(@D)/gpio_test/bare-metal-Linux/pwm_test $(TARGET_DIR)/usr/bin/
+	# Uncomment the below line when building the server image to run the server on startup 
+	# $(INSTALL) -m 0755 $(@D)/'Init Scripts'/S99StartServer.sh $(TARGET_DIR)/etc/init.d/
+	# Uncomment the below line when building the client image to run the client on startup 
+	# $(INSTALL) -m 0755 $(@D)/'Init Scripts'/S99StartClient.sh $(TARGET_DIR)/etc/init.d/
 endef
 
 $(eval $(generic-package))
